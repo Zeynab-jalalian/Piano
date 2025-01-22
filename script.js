@@ -1,2 +1,7 @@
 const pianokeys=document.querySelectorAll('.piano-keys .key');
-console.log(pianokeys);
+pianokeys.forEach(function(key){
+    key.addEventListener('click',function(){
+        console.log('key'+key.dataset.key+'clicked');
+        
+    })
+})
