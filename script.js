@@ -11,3 +11,19 @@ pianokeys.forEach(function(key){
         },200)
     })
 })
+
+window.addEventListener('keydown',function(event){
+    const key=document.querySelector(`.key[data-key="${event.key}"]`);
+    if(key){
+        const keySound=key.dataset.key;
+        const audio=new Audio(`notes/${keySound}.mp3`);
+           audio.play();
+           key.classList.remove('active');
+    }
+})
+window.addEventListener('keyup',function(event){
+    const key=document.querySelector(`.key[data-key="${event.key}"]`);
+    if(key){
+        key.classList.remove('active');
+    }
+})
