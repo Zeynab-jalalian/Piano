@@ -1,9 +1,10 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body{
+
+body {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -11,45 +12,56 @@ body{
   align-items: center;
   background: #e3f2f0;
 }
-.container{
-  width: 780px;
+
+.container {
+  width: 100%;
+  max-width: 780px; /* حداکثر عرض */
   padding: 35px 40px;
   border-radius: 20px;
   background: #22333b;
 }
-header h2{
+
+header h2 {
   display: flex;
   justify-content: center;
   font-size: 1.5rem;
   color: #b2b2b2;
 }
-.piano-keys{
+
+.piano-keys {
   display: flex;
   list-style: none;
   margin-top: 40px;
+  flex-wrap: wrap; /* این رو اضافه کردیم تا در صفحه‌های کوچکتر، کلیدها به چند خط بروند */
+  justify-content: center; /* این باعث می‌شود که کلیدها وسط چین شوند */
 }
-.piano-keys .key{
+
+.piano-keys .key {
   cursor: pointer;
   user-select: none;
   text-transform: uppercase;
   position: relative;
+  transition: all 0.2s ease-in-out;
 }
-.piano-keys .white{
+
+.piano-keys .white {
   height: 230px;
   width: 70px;
   border-radius: 8px;
   border: 1px solid #000;
-  background: linear-gradient(#fff 96%,#eee 4%);
+  background: linear-gradient(#fff 96%, #eee 4%);
 }
-.piano-keys .black{
+
+.piano-keys .black {
   z-index: 2;
   width: 44px;
   height: 140px;
-  margin: 0 -22px 0 -22px;
+  margin: 0 -22px;
   border-radius: 0 0 5px 5px;
-  background: linear-gradient(#333,#000);
+  background: linear-gradient(#333, #000);
 }
-.piano-keys .key span{
+
+.piano-keys .key span {
   position: absolute;
   bottom: 20px;
   width: 100%;
@@ -57,11 +69,42 @@ header h2{
   font-size: 1.1rem;
   text-align: center;
 }
-.piano-keys .black span{
+
+.piano-keys .black span {
   bottom: 13px;
   color: #888888;
 }
-.piano-keys .key.active{
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(255,255,255,0.5);
+
+/* اضافه کردن حالت فعال برای کلیدها */
+.piano-keys .key.active {
+  transform: scale(0.95); /* کوچک شدن کلید برای اثر فشار */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* نور اطراف کلید */
+}
+
+/* برای اندازه‌های موبایل و تبلت (رسپانسیو) */
+@media (max-width: 768px) {
+  .piano-keys {
+    justify-content: space-evenly;
+    gap: 8px; /* فاصله بین کلیدها در صفحه‌های کوچکتر */
+  }
+
+  .piano-keys .key {
+    height: 180px; /* کاهش ارتفاع کلیدها برای صفحه‌های کوچکتر */
+    width: 60px; /* کاهش عرض کلیدها */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 25px 30px;
+  }
+
+  .piano-keys .key {
+    height: 150px; /* کاهش ارتفاع بیشتر */
+    width: 50px; /* کاهش عرض بیشتر */
+  }
+
+  header h2 {
+    font-size: 1.5rem; /* اندازه کوچک‌تر برای عنوان */
+  }
 }
