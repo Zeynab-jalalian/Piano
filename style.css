@@ -57,3 +57,7 @@ header h2{
   font-size: 1.1rem;
   text-align: center;
 }
+.piano-keys .black span{
+  bottom: 13px;
+  color: #888888;
+}
