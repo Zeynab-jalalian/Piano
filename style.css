@@ -49,3 +49,11 @@ header h2{
   border-radius: 0 0 5px 5px;
   background: linear-gradient(#333,#000);
 }
+.piano-keys .key span{
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  color: #a2a2a2;
+  font-size: 1.1rem;
+  text-align: center;
+}
